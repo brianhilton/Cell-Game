@@ -5,11 +5,9 @@ using UnityEngine.InputSystem;
 
 public class movement : MonoBehaviour
 {
-    public CharacterController characterController;
+    public Rigidbody2D characterController;
     public float movementSpeed = 12f;
     private Vector3 velocity;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +35,7 @@ public class movement : MonoBehaviour
             x = -1;
 
         Vector3 moveDirection = (transform.right * x) + (transform.up * y);
-        characterController.Move(moveDirection * movementSpeed * Time.deltaTime);
+        characterController.velocity = (moveDirection * movementSpeed * Time.deltaTime ) * 100;
 
 
     }
